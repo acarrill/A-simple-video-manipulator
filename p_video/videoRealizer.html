@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Video realizer web</title>
+        <style>
+        @font-face {
+          font-family: woods;
+          src: url("woods.ttf");
+        }
+        body {
+            background-image: url("home.png");
+        }
+            #master{
+                position: fixed;
+                margin-top: 160px;
+                margin-left: 0px;
+                border-style:solid;
+                border-color: red;
+                border-width: 5px;
+            }
+            #video01{
+                border-style:solid;
+            }
+            #video02{
+                border-style:solid;
+            }
+            #video03{
+                border-style:solid;
+            }
+            #video04{
+                border-style:solid;
+            }
+            #inputs{
+                position: absolute;
+                color: yellow;
+                margin-left: 500px;
+                margin-top: 160px;
+                border-style:solid;
+            }
+            #filtrado{
+                position: fixed;
+                margin-top: 250px;
+                margin-left: 770px;
+                border-style:solid;
+                border-color: green;
+                border-width: 5px;
+                color: yellow;
+            }
+            #filterInputs{
+                position: fixed;
+                margin-top: 450px;
+                border-style:solid;
+                border-color: green;
+                border-width: 5px;
+                color: red;
+            }
+            #clock {
+                position: fixed;
+                font-size: 20px;
+                margin-top: 180px;
+                margin-left: 500px;
+                font-style: italic;
+                text-align: center;
+                color: black;
+                line-height: 1px;
+            }
+        </style>
+    </head>
+    <body onload="main()">
+
+        <form id="inputs" name=inputs>
+            <b>Start</b>
+            <input type="number" style="width: 45px;" name="Start" min="0" max="60" step="0.1" value="2">
+            <b>End</b>
+            <input type="number" style="width: 45px;" name="End" min="0" max="60" step="0.1" value="0">
+            <b>Repeticiones</b>
+            <input type="number" style="width: 45px;" name="Iterations" min="0" max="60" step="1" value="0">
+            <input type="button" name="Loop" onclick="loop()" value="Loop">
+        </form>
+
+        <form id="filterInputs" name="filterInputs">
+            <p> <b>Filtros</b> </p>
+            <input type="button" name="whiteBlack" onclick="" value="White/Black">
+            <input type="button" name="red" onclick="" value="Red">
+            <input type="button" name="cyan" onclick="" value="Cyan">
+            <input type="button" name="negative" onclick="" value="Negative">
+            <input type="button" name="redNegative" onclick="" value="RedNegative">
+            <input type="button" name="greenNegative" onclick="" value="GreenNegative">
+            <input type="button" name="fakeColor" onclick="" value="FakeColor">
+        </form>
+
+        <div id="filtrado">
+            <p> <b>Video Filtrado:</b> </p>
+            <canvas id="canvas" width="300" height="300"></canvas>
+        </div>
+
+        <video id="master" src ="realizador-fuente1.mp4" width="480" height="270" autoplay muted>
+        Please use a browser that supports "html5 video label"
+        </video>
+        <video id="video01" src ="realizador-fuente1.mp4" width="250" height="150" autoplay muted loop>
+        Please use a browser that supports "html5 video label"
+        </video>
+        <video id="video02" src ="realizador-fuente2.mp4" width="250" height="150" autoplay muted loop>
+        Please use a browser that supports "html5 video label"
+        </video>
+        <video id="video03" src ="realizador-fuente3.mp4" width="250" height="150" autoplay muted loop>
+        Please use a browser that supports "html5 video label"
+        </video>
+        <video id="video04" src ="realizador-fuente4.mp4" width="200" height="150" autoplay muted loop>
+        Please use a browser that supports "html5 video label"
+        </video>
+
+    <!--Este script debe cargarse primero-->
+    <script src="/home/cachuela/csaai/p_filtro/videoColorFilter.js"></script>
+    <script src="videoRealizer.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' type='text/javascript'/> </script>
+    </body>
+</html>
